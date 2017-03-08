@@ -16,9 +16,7 @@ $(function() {
     var request = new XMLHttpRequest();
     var url = "data/touhou.json";
     request.onprogress = function(e) {
-        if (e.lengthComputable) {
-            $(".percentage").text(Math.floor((e.loaded / e.total) * 100) + "%");
-        }
+		$(".percentage").text(Math.floor((e.loaded / 16574597) * 100) + "%");
     }
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
