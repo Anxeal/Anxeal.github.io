@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Teko');
+
+body {
+	background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+	color: #ccc;
+	text-align:center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.title {
+	font-family: 'Teko', cursive;
+	font-size: 120px;
+	line-height:100px;
+	  user-select: none; 
+	  cursor:default;
+	text-shadow:
+	1px 1px 0 #CCC,
+	2px 2px 0 #CCC, /* end of 2 level deep grey shadow */
+	3px 3px 0 #444,
+	4px 4px 0 #444,
+	5px 5px 0 #444,
+	6px 6px 0 #444; /* end of 4 level deep dark shadow */
+}
+::selection {
+	background-color:#09c;
+	color:#eee;
+	text-shadow:none;
+}
+
+.content {
+	font-size:20px;
+	background: rgba(51,51,51,0.95);
+	text-align:left;
+	width:800px;
+	border-radius:10px;
+	margin: 0 auto;
+	min-height:600px;
+	padding:20px;
+	box-shadow:0 5px 10px black;
+	}
+	
+	h1{
+		border-bottom: 2px solid #ccc;
+	}
+	h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1.12em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
