@@ -135,3 +135,7 @@ img.solved {
 .loading-text {
     text-transform: none;
 }
+.copyright {
+	position: absolute;
+	bottom: 0;
+}
