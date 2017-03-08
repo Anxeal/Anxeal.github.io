@@ -25,7 +25,7 @@ $(function() {
 			$(".percentage").text("100%");
             touhouData = JSON.parse(this.responseText);
             $(".loading").fadeOut();
-            $("#answer").fadeIn().prop("disabled", true);
+            $("#answer").fadeIn();
             getNextTouhou();
 			setInterval(checkForChanges,100);
         }
