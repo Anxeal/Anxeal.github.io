@@ -18,12 +18,24 @@
     font-size: 1.8em;
 }
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
-@keyframes spin {
+@-webkit-keyframes spin {
     0% {
-        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
     }
 }
 body {
@@ -36,7 +48,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 .percentage {
     font-size: 2em;
@@ -46,7 +59,8 @@ body {
     position: absolute;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 .spinner-inner {
     border-radius: 50%;
@@ -64,7 +78,10 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: default;
     font-family: 'Didact Gothic', sans-serif;
 }
@@ -80,7 +97,8 @@ body {
     text-align: left;
     width: 525px;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
 }
 .image {
     height: 400px;
@@ -90,20 +108,24 @@ body {
     top: 250px;
     width: 300px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 .tick {
     stroke-dasharray: 25;
     stroke-dashoffset: 25;
+    -webkit-transition: none;
     transition: none;
 }
 .trigger.solved + svg .path {
     opacity: 1;
     stroke-dashoffset: 0;
+    -webkit-transition: stroke-dashoffset .1s linear;
     transition: stroke-dashoffset .1s linear;
 }
 img.solved {
     opacity: .5;
+    -webkit-transition: opacity .5s;
     transition: opacity .5s;
 }
 .loading-text {
