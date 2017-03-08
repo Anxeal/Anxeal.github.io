@@ -22,11 +22,12 @@ $(function() {
     }
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+			$(".percentage").text("100%");
             touhouData = JSON.parse(this.responseText);
             $(".loading").fadeOut();
             $("#answer").fadeIn().prop("disabled", true);
             getNextTouhou();
-		setInterval(checkForChanges,100);
+			setInterval(checkForChanges,100);
         }
     };
     request.open("GET", url, true);
