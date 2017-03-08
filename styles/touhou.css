@@ -110,6 +110,8 @@ body {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+	-webkit-filter: drop-shadow(0 0 10px #0c0);
+            filter: drop-shadow(0 0 10px #0c0);
 }
 .tick {
     stroke-dasharray: 25;
