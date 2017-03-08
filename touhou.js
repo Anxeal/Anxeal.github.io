@@ -44,7 +44,7 @@ $(function() {
             }
         })
         .on("propertychange change click keyup input paste", function() {
-			if ($("#answer").val().replace(/ /g, "_") == touhouData[touhouId].char) {
+			if ($("#answer").val().split(" (")[0].replace(/ /g, "_") == touhouData[touhouId].char) {
 
 				$(".trigger, .image").addClass("solved");
 				$("#answer").val("").prop("disabled", true);
