@@ -27,7 +27,6 @@ $(function() {
             $(".loading").fadeOut();
             $("#answer").fadeIn();
             getNextTouhou();
-			setInterval(checkForChanges,100);
         }
     };
     request.open("GET", url, true);
@@ -42,11 +41,17 @@ $(function() {
                 var autocomplete = $(".easy-autocomplete-container li:eq(0)").text();
                 if (autocomplete.length > 0)
                     $(this).val(autocomplete);
-                e.preventDefault();
-                return false;
             }
         })
-        .on("propertychange change click keyup input paste", checkForChanges)
+        .on("propertychange change click keyup input paste", function() {
+			if ($("#answer").val().replace(/ /g, "_") == touhouData[touhouId].char) {
+
+				$(".trigger, .image").addClass("solved");
+				$("#answer").val("").prop("disabled", true);
+
+				getNextTouhou();
+			}
+		})
         .easyAutocomplete({
             url: "data/charList.json",
             list: {
@@ -63,17 +68,6 @@ $(function() {
     });
 	
 });
-
-
-function checkForChanges() {
-    if ($("#answer").val().replace(/ /g, "_") == touhouData[touhouId].char) {
-
-        $(".trigger, .image").addClass("solved");
-        $("#answer").val("").prop("disabled", true);
-
-        getNextTouhou();
-    }
-}
 
 function getNextTouhou() {
     if (touhouId) solved.push(touhouId);
