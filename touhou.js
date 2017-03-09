@@ -51,15 +51,17 @@ $(function() {
                     if (autocomplete.length > 0)
                         $(this).val(autocomplete);
                 }
+				return false;
             }
 			if(e.keyCode == 8) {
 				if($(".easy-autocomplete-container li:eq(0)").text()!="" && $("#answer").val().indexOf($(".easy-autocomplete-container li:eq(0)").text()) != -1)
 				{
 					$("#answer").val("");
 				}
+				return false;
 			}
         })
-        .on("propertychange change click keyup input paste", checkAnswer)
+        /*.on("propertychange change click keyup input paste", checkAnswer)*/
         .easyAutocomplete({
             url: "data/charList.json",
             list: {
