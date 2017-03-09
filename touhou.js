@@ -15,7 +15,7 @@ var touhouData;
 var seen = [];
 var solved = 0, skipped = 0;
 var touhouId;
-var preloadCount = 20;
+var preloadCount = 10;
 var queue = [];
 var imagesLoaded = 0;
 var timerInterval;
