@@ -18,6 +18,7 @@ var touhouId;
 var preloadCount = 20;
 var queue = [];
 var imagesLoaded = 0;
+var timerInterval;
 $(function() {
     var request = new XMLHttpRequest();
     var url = "data/touhou.json";
@@ -110,17 +111,21 @@ function initialize() {
     $("#answer").focus();
 }
 
+function timeUp(){
+	clearInterval(timerInterval);
+	$("#answer").val("").prop("disabled", true);
+	$(".contest").fadeOut("slow", function() {
+		$(".stats").html(`Time is up!<br/>Solved: ${solved}<br/>Skipped: ${skipped}`);
+		$(".results").fadeIn();
+	});
+}
+
 function startTimer() {
     setTimerVal(60);
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         setTimerVal(getTimerVal() - 1);
         if (getTimerVal() == 0) {
-            clearInterval(timerInterval);
-            $("#answer").val("").prop("disabled", true);
-            $(".contest").fadeOut("slow", function() {
-                $(".stats").html(`Time is up!<br/>Solved: ${solved}<br/>Skipped: ${skipped}`);
-                $(".results").fadeIn();
-            });
+            timeUp();
         }
     }, 1000);
 }
@@ -130,7 +135,7 @@ function getTimerVal() {
 }
 
 function setTimerVal(val) {
-    if (val < 0) val = 0;
+    if (val < 0){ val = 0; timeUp();}
     $(".circle-animation").css("stroke-dashoffset", 440 / 60 * (60 - val));
     $(".timer span").text(val);
 }
