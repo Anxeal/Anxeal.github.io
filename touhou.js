@@ -63,7 +63,7 @@ $(function() {
                 $(".back").text(touhouData[touhouId].char.replace(/_/g, " ")).fadeIn();
                 $(".image").addClass("skipped");
                 $("#answer").val("").prop("disabled", true);
-                setTimerVal(getTimerVal() - 4);
+                setTimerVal(getTimerVal() - 2);
 
                 setTimeout(function() {
                     getNextTouhou(false);

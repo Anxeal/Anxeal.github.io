@@ -105,7 +105,7 @@ body {
     display: inline;
 }
 .easy-autocomplete::before {
-    content: 'Type "skip" to skip (5 seconds penalty)';
+    content: 'Type "skip" to skip (3 seconds penalty)';
     display: block;
 }
 .easy-autocomplete-container {
