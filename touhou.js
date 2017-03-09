@@ -13,9 +13,10 @@ var EasyAutocomplete=function(a){return a.Configuration=function(a){function b()
 
 var touhouData;
 var seen = [];
-var solved = 0, skipped = 0;
+var solved = 0
+var skipped = -1;
 var touhouId;
-var preloadCount = 10;
+var preloadCount = 20;
 var queue = [];
 var imagesLoaded = 0;
 var timerInterval;
@@ -48,31 +49,14 @@ $(function() {
                         $(this).val(autocomplete);
                 }
             }
+			if(e.keyCode == 8) {
+				if($(".easy-autocomplete-container li:eq(0)").text()!="" && $("#answer").val().indexOf($(".easy-autocomplete-container li:eq(0)").text()) != -1)
+				{
+					$("#answer").val("");
+				}
+			}
         })
-        .on("propertychange change click keyup input paste", function() {
-            if ($("#answer").val().split(" (")[0].replace(/ /g, "_") == touhouData[touhouId].char) {
-
-                $(".trigger, .image").addClass("solved");
-                $("#answer").val("").prop("disabled", true);
-
-                setTimeout(function() {
-                    getNextTouhou(true);
-                }, 500);
-            }
-            if ($("#answer").val() == "skip") {
-                $(".back").text(touhouData[touhouId].char.replace(/_/g, " ")).fadeIn();
-                $(".image").addClass("skipped");
-                $("#answer").val("").prop("disabled", true);
-                setTimerVal(getTimerVal() - 2);
-
-                setTimeout(function() {
-                    getNextTouhou(false);
-                }, 900);
-                setTimeout(function() {
-                    $(".image").removeClass("skipped");
-                }, 1000);
-            }
-        })
+        .on("propertychange change click keyup input paste", checkAnswer)
         .easyAutocomplete({
             url: "data/charList.json",
             list: {
@@ -81,6 +65,7 @@ $(function() {
                 }
             }
         });
+	setInterval(checkAnswer, 100);
 
     $(".image").on("load", function() {
         $(".trigger, .image").removeClass("solved");
@@ -93,6 +78,32 @@ $(function() {
     }).on("click", initialize);
 });
 
+function checkAnswer(){
+	if(touhouId == undefined) return; 
+	if ($("#answer").val().split(" (")[0].replace(/ /g, "_") == touhouData[touhouId].char) {
+
+		$(".trigger, .image").addClass("solved");
+		$("#answer").val("").prop("disabled", true);
+
+		setTimeout(function() {
+			getNextTouhou(true);
+		}, 500);
+	}
+	if ($("#answer").val() == "skip") {
+		$(".back").text(touhouData[touhouId].char.replace(/_/g, " ")).fadeIn();
+		$(".image").addClass("skipped");
+		$("#answer").val("").prop("disabled", true);
+		setTimerVal(getTimerVal() - 2);
+
+		setTimeout(function() {
+			getNextTouhou(false);
+		}, 900);
+		setTimeout(function() {
+			$(".image").removeClass("skipped");
+		}, 1000);
+	}
+}
+
 function preload() {
     for (var i = 0; i < preloadCount; i++) {
         preloadImage(random(touhouData.length));
@@ -102,7 +113,8 @@ function preload() {
 function initialize() {
     $(".results").hide();
     seen = [];
-    solved = skipped = 0;
+    solved = 0
+	skipped = -1;
     touhouId = undefined;
     getNextTouhou();
     startTimer();
@@ -143,14 +155,13 @@ function setTimerVal(val) {
 function preloadImage(ID) {
     queue.push(ID);
     var img = new Image();
-	if(imagesLoaded<preloadCount) {
-		img.onload = function(){
-			if(++imagesLoaded == preloadCount){
-				$(".preloading").fadeOut("fast",function() {
-					$("#restart").fadeIn();
-				});
-			}
+	img.onload = function(){
+		if(++imagesLoaded == preloadCount){
+			$(".preloading").fadeOut("fast",function() {
+				$("#restart").fadeIn();
+			});
 		}
+		$(".preloading").text(`Preloading images... ${imagesLoaded}/${preloadCount}`);
 	}
 	img.src = "https://safebooru.org//images/" + touhouData[ID].image;
 }
