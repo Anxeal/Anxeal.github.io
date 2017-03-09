@@ -67,6 +67,11 @@ $(function() {
 	
 });
 
+function setTimerVal(val){
+	$('.circle-animation').css('stroke-dashoffset',440/60*(60-val));
+	$(".timer span").text(val);
+}
+
 function getNextTouhou() {
     if (touhouId) solved.push(touhouId);
     do {
