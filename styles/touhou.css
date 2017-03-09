@@ -105,7 +105,7 @@ body {
     display: inline;
 }
 .easy-autocomplete::before {
-    content: 'Type "skip" to skip (3 seconds penalty)';
+    content: 'Type "skip" to skip';
     display: block;
 }
 .easy-autocomplete-container {
@@ -117,9 +117,11 @@ body {
 }
 .image {
     height: 400px;
-    opacity: 1;
-    -webkit-transition: opacity .2s ease;
-    transition: opacity .2s ease;
+	display: none;
+}
+.images {
+	height:400px;
+	display:block;
 }
 #tick {
     position: absolute;
@@ -181,7 +183,7 @@ body {
             transform: rotate(-90deg);
 }
 .content {
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
     position: relative;
     height: 100%;
@@ -189,7 +191,6 @@ body {
 .skipped {
     -webkit-transform: translateX(-2000px);
             transform: translateX(-2000px);
-    opacity: 0;
     -webkit-transition: 1s ease-in;
     transition: 1s ease-in;
 }
