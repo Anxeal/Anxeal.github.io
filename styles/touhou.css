@@ -225,11 +225,3 @@ body {
     margin: 20px;
 	display: none;
 }
-
-.copyright ~ a {
-	position: absolute;
-	bottom: 30px;
-	left: 50%:
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-}
