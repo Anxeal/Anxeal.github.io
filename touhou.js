@@ -175,7 +175,8 @@ function getNextTouhou(correct) {
     } while (seen.indexOf(touhouId) != -1);
     $(".back").fadeOut();
     $(".image").attr("src", "https://safebooru.org//images/" + touhouData[touhouId].image);
-    var nextId;
+    (new Image()).src=queue[0];
+	var nextId;
     do {
         nextId = random(touhouData.length);
     } while (seen.indexOf(nextId) != -1);
