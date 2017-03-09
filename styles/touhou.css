@@ -38,11 +38,17 @@
                 transform: rotate(360deg);
     }
 }
+html{
+	height: 100%;
+}
 body {
     font-family: 'Didact Gothic', sans-serif;
     text-align: center;
     text-transform: capitalize;
 	user-select:none;
+    cursor: default;
+	height: 97%;
+	overflow-y:hidden;
 }
 .spinner,
 .percentage {
@@ -79,12 +85,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
     cursor: default;
     font-family: 'Didact Gothic', sans-serif;
+    z-index: 999;
 }
 .title {
     font-size: 3em;
@@ -92,8 +95,13 @@ body {
 #answer {
     font-size: 2em;
     width: 500px;
-    display: none;
 	user-select:all;
+	cursor: text;
+	display:inline;
+}
+.easy-autocomplete::before {
+	content: 'Type "skip" to skip (3 seconds penalty)';
+	display:block;
 }
 .easy-autocomplete-container {
     text-align: left;
@@ -104,6 +112,8 @@ body {
 }
 .image {
     height: 400px;
+	opacity:1;
+	transition:opacity .2s ease;
 }
 #tick {
     position: absolute;
@@ -127,7 +137,7 @@ body {
     -webkit-transition: stroke-dashoffset .1s linear;
     transition: stroke-dashoffset .1s linear;
 }
-img.solved {
+.image.solved {
     opacity: .5;
     -webkit-transition: opacity .5s;
     transition: opacity .5s;
@@ -139,24 +149,25 @@ img.solved {
 	position: absolute;
 	bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 }
 
 .timer {
     position: absolute;
     top: 0;
     right: 0;
+	/*display: none;*/
 }
 
 .timer span {
     text-align: center;
     position: absolute;
-    top: 20px;
+    top: 53px;
     font-size: 3em;
     width: 100%;
 }
 
-.circle_animation {
+.circle-animation {
     stroke-dasharray: 440;
     stroke-dashoffset: 440;
     transition: all 1s linear;
@@ -167,5 +178,23 @@ img.solved {
 }
 
 .content{
-	width:800px;
+	width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+}
+.skipped{
+	transform: translateX(-2000px);
+	opacity: 0;
+	transition:1s ease-in;
+}
+
+.back {
+	display:none;
+	line-height: 0;
+	position: absolute;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%,-200px);
+	font-size:2em;
 }
