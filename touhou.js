@@ -50,15 +50,15 @@ $(function() {
                     var autocomplete = $(".easy-autocomplete-container li:eq(0)").text();
                     if (autocomplete.length > 0)
                         $(this).val(autocomplete);
+					return false;
                 }
-				return false;
             }
 			if(e.keyCode == 8) {
 				if($(".easy-autocomplete-container li:eq(0)").text()!="" && $("#answer").val().indexOf($(".easy-autocomplete-container li:eq(0)").text()) != -1)
 				{
 					$("#answer").val("");
+					return false;
 				}
-				return false;
 			}
         })
         /*.on("propertychange change click keyup input paste", checkAnswer)*/
