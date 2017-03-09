@@ -226,7 +226,7 @@ body {
 	display: none;
 }
 
-.copyright + a {
+.copyright ~ a {
 	position: absolute;
 	bottom: 30px;
 	left: 50%:
