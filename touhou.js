@@ -93,7 +93,7 @@ function startTimer(){
 	setTimerVal(60);
 	var timerInterval = setInterval(function() {
 		setTimerVal(getTimerVal() - 1);
-		if(getInterVal() == 0)
+		if(getTimerVal() == 0)
 			clearInterval(timerInterval);
 	}, 1000);
 }
