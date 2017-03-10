@@ -315,7 +315,7 @@ body
 }
 .stats .solved
 {
-    box-shadow: 0 0 10px green;
+    box-shadow: 0 0 10px green, 0 0 10px green;
 }
 .stats .skipped
 {
@@ -333,6 +333,8 @@ body
     cursor: pointer;
     -webkit-transition: .3s ease;
             transition: .3s ease;
+			
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
 }
 .stats img:hover
 {
