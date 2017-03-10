@@ -137,6 +137,7 @@ function timeUp(){
 		$(".results").fadeIn();
 		$(".image:eq(0)").appendTo(".stats").attr("title",touhouData[touhouId].char.replace(/_/g," ").replace(/\b\w/g, function(l){ return l.toUpperCase() }));
 		$(".stats .image").on("click", function(){window.open($(this).attr("src"), '_blank');});
+		$(".stats").scrollTop(0);
 	});
 }
 
