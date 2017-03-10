@@ -164,7 +164,7 @@ function preloadImage() {
     queue.push(ID);
 	lastChars.push(touhouData[ID].char);
 	if(lastChars.length > 20)
-		lastChars = [];
+		lastChars.shift();
     var img = $(`<img class="image" src="https://safebooru.org//images/${touhouData[ID].image}" draggable="false"></img>`)
 	.appendTo(".images");
 	if(imagesLoaded <= preloadCount){
