@@ -135,7 +135,7 @@ function timeUp(){
 		$('.stats').contents().first()[0].textContent=`Time is up! Solved: ${solved} - Skipped: ${skipped}`;
 		$($('.stats').contents().first()[0]).after("<br/>");
 		$(".results").fadeIn();
-		$(".image:eq(0)").appendTo(".stats");
+		$(".image:eq(0)").appendTo(".stats").attr("title",touhouData[touhouId].char.replace(/_/g," ").replace(/\b\w/g, function(l){ return l.toUpperCase() });
 		$(".stats .image").on("click", function(){window.open($(this).attr("src"), '_blank');});
 	});
 }
@@ -202,7 +202,7 @@ function getNextTouhou(correct) {
     else skipped++;
     if (touhouId){
 		seen.push(touhouId);
-		$(".image:eq(0)").appendTo(".stats");
+		$(".image:eq(0)").appendTo(".stats").attr("title",touhouData[touhouId].char.replace(/_/g," ").replace(/\b\w/g, function(l){ return l.toUpperCase() });
 		imagesLoaded--;
 	}
     do {

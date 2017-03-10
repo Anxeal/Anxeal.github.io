@@ -323,6 +323,8 @@ body
 }
 .stats img
 {
+	background: white;
+	
     position: relative;
 
     display: inline;
