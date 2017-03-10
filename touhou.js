@@ -20,6 +20,7 @@ var preloadCount = 20;
 var queue = [];
 var imagesLoaded = 0;
 var timerInterval;
+var lastChars = [];
 $(function() {
     var request = new XMLHttpRequest();
     var url = "data/touhou.json";
@@ -102,13 +103,13 @@ function checkAnswer(){
 		setTimeout(function() {
 			$(".image:eq(0)").remove();
 			getNextTouhou(false);
-		}, 2000);
+		}, 1500);
 	}
 }
 
 function preload() {
     for (var i = 0; i < preloadCount; i++) {
-        preloadImage(random(touhouData.length));
+        preloadImage();
     }
 }
 
@@ -118,6 +119,7 @@ function initialize() {
     solved = 0
 	skipped = -1;
     touhouId = undefined;
+	lastChars = [];
     getNextTouhou();
     startTimer();
     $(".contest").fadeIn();
@@ -154,8 +156,15 @@ function setTimerVal(val) {
     $(".timer span").text(val);
 }
 
-function preloadImage(ID) {
+function preloadImage() {
+	var ID;
+    do {
+        ID = random(touhouData.length);
+    } while (seen.indexOf(ID) != -1 || lastChars.indexOf(touhouData[ID].char) != -1);
     queue.push(ID);
+	lastChars.push(touhouData[ID].char);
+	if(lastChars.length > 20)
+		lastChars = [];
     var img = $(`<img class="image" src="https://safebooru.org//images/${touhouData[ID].image}" draggable="false"></img>`)
 	.appendTo(".images");
 	if(imagesLoaded <= preloadCount){
@@ -179,11 +188,7 @@ function getNextTouhou(correct) {
     } while (seen.indexOf(touhouId) != -1);
     $(".back").fadeOut();
 	$(".image:eq(0)").fadeIn();
-	var nextId;
-    do {
-        nextId = random(touhouData.length);
-    } while (seen.indexOf(nextId) != -1);
-    preloadImage(nextId);
+    preloadImage();
 }
 
 function random(n) {
