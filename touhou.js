@@ -138,7 +138,7 @@ function timeUp() {
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $(".results").fadeIn();
-        if(!$(".contest .image:not(.skipped):not(.solved)").length) moveImage();
+        if(!$(".contest .image.skipped, .contest .image.solved)").length) moveImage();
         $(".stats .image")
             .each(function() {
                 $(`<div class="tooltip">${$(this).attr("data-char")}</div>`)
