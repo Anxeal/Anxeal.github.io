@@ -401,6 +401,11 @@ body
     opacity: 1;
 }
 
+.solved + .tooltip {
+    background: green;
+    color: white;
+}
+
 .lte8 .wrapper .tooltip
 {
     display: none;
