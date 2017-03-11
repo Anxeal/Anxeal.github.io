@@ -311,6 +311,12 @@ body
     color: white;
     border: none;
     background: #333;
+	
+	transition: .3s;
+}
+#restart:hover
+{
+    background: #999;
 }
 .stats .image
 {
