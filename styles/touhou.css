@@ -292,10 +292,10 @@ body
 
 .stats
 {
-	overflow-x: none;
+	overflow-x: hidden;
     overflow-y: auto;
 	
-    padding: 20px;
+    padding: 25px;
     text-transform: none;
 }
 
@@ -372,13 +372,12 @@ body
     overflow: hidden;
 
     margin-bottom: 15px;
-    padding: 5px;
+    padding: 0 10px;
 
     -webkit-transition: all .25s ease-out;
             transition: all .25s ease-out;
-    -webkit-transform: translate(-50%,-180px);
-            transform: translate(-50%,-180px);
-    vertical-align: middle;
+    -webkit-transform: translate(-50%,-200px);
+            transform: translate(-50%,-200px);
     white-space: nowrap;
 
     opacity: 0;
@@ -394,8 +393,8 @@ body
 {
 	pointer-events: auto;
 	
-    -webkit-transform: translate(-50%,-180px);
-            transform: translate(-50%,-180px);
+    -webkit-transform: translate(-50%,-190px);
+            transform: translate(-50%,-190px);
 
     opacity: 1;
 }
