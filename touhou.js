@@ -195,9 +195,9 @@ function appendImage() {
                 $(".preloading").text(`Preloading images... ${imagesLoaded}/${preloadCount/2}`);
             }
             if (imagesLoaded >= preloadCount) {
-                $(".preloading").fadeOut();
+                $(".preloading").slideUp();
             } else {
-                $(".preloading").fadeIn();
+                $(".preloading").slideDown();
             }
             appendImage();
         });
