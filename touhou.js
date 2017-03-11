@@ -139,7 +139,8 @@ function moveImage() {
 function timeUp() {
     clearInterval(timerInterval);
     $("#answer").val("");
-    $("#restart").hide();
+	if(imagesLoaded < preloadCount/2)
+		$("#restart").hide();
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $(".results").fadeIn();
