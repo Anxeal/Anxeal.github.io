@@ -143,9 +143,9 @@ function timeUp() {
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $(".results").fadeIn();
-        if(!$(".contest .image.skipped, .contest .image.solved").length)
-		{
+        if(!$(".contest .image.skipped, .contest .image.solved").length) {
 			moveImage();
+		} else {
 			queue.shift();
 		}
         $(".stats").scrollTop(0);
