@@ -127,7 +127,7 @@ function initialize() {
 }
 
 function moveImage() {
-    if ($(".image:eq(0)").length) $(".image:eq(0)").appendTo($(`<div class="wrapper"></div>`).appendTo($(".stats"))).attr("data-char", touhouData[touhouId].char.replace(/_/g, " ").replace(/\b\w/g, function(l) {
+    $(".image:eq(0)").appendTo($(`<div class="wrapper"></div>`).appendTo($(".stats"))).attr("data-char", touhouData[touhouId].char.replace(/_/g, " ").replace(/\b\w/g, function(l) {
         return l.toUpperCase()
     }));
 }
@@ -139,7 +139,7 @@ function timeUp() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $($('.stats').contents().first()[0]).after("<br/>");
         $(".results").fadeIn();
-        moveImage();
+        if(!$(".contest .image:not(.skipped):not(.solved)").length) moveImage();
         $(".stats .image")
             .each(function() {
                 $(`<div class="tooltip">${$(this).attr("data-char")}</div>`)
