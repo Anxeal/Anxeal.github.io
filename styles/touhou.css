@@ -28,7 +28,7 @@
                 transform: rotate(0deg);
     }
     100%
-       {
+    {
         -webkit-transform: rotate(360deg);
                 transform: rotate(360deg);
     }
@@ -41,7 +41,7 @@
                 transform: rotate(0deg);
     }
     100%
-       {
+    {
         -webkit-transform: rotate(360deg);
                 transform: rotate(360deg);
     }
@@ -313,6 +313,22 @@ body
     border: none;
     background: #333;
 }
+.stats .image
+{
+    position: relative;
+
+    display: inline;
+
+    height: calc(400px / 3);
+    margin: 5px;
+
+    -webkit-transition: .3s ease;
+            transition: .3s ease;
+
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+}
 .stats .solved
 {
     box-shadow: 0 0 10px green, 0 0 10px green;
@@ -321,24 +337,7 @@ body
 {
     opacity: .7;
 }
-.stats img
-{
-	background: white;
-	
-    position: relative;
-
-    display: inline;
-
-    height: calc(400px / 3);
-    margin: 5px;
-
-    cursor: pointer;
-    -webkit-transition: .3s ease;
-            transition: .3s ease;
-			
-    box-shadow: 0 0 5px rgba(0,0,0,.3);
-}
-.stats img:hover
+.wrapper:hover .image
 {
     z-index: 999;
 
@@ -346,4 +345,59 @@ body
             transform: scale(1.2);
 
     opacity: 1;
+}
+.wrapper
+{
+    font-size: 20px;
+
+    display: inline-block;
+
+    cursor: pointer;
+    -webkit-transform: translateZ(0);
+
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrapper .tooltip
+{
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+
+    display: block;
+    overflow: hidden;
+
+    margin-bottom: 15px;
+    padding: 5px;
+
+    -webkit-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+    -webkit-transform: translate(-50%,-180px);
+            transform: translate(-50%,-180px);
+    vertical-align: middle;
+    white-space: nowrap;
+
+    opacity: 0;
+    color: black;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 0 1px rgba(0,0,0,.3);
+}
+
+.wrapper:hover  .tooltip
+{
+    -webkit-transform: translate(-50%,-180px);
+            transform: translate(-50%,-180px);
+
+    opacity: 1;
+}
+
+.lte8 .wrapper .tooltip
+{
+    display: none;
+}
+
+.lte8 .wrapper:hover .tooltip
+{
+    display: block;
 }
