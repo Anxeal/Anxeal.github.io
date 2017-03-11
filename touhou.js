@@ -141,6 +141,8 @@ function timeUp() {
     $("#answer").val("");
 	if(imagesLoaded < preloadCount/2)
 		$("#restart").hide();
+	else
+		$("#restart").fadeIn();
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $(".results").fadeIn();
