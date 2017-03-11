@@ -158,13 +158,16 @@ body
 {
     display: none;
 
-    height: 400px;
+    max-height: 400px;
+	max-width: 800px;
 }
 .images
 {
     display: block;
 
     height: 400px;
+	
+	vertical-align: middle;
 }
 #tick
 {
