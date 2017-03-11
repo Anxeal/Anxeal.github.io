@@ -292,6 +292,8 @@ body
 
 .stats
 {
+	width: 800px;
+	
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -361,6 +363,8 @@ body
 
 .wrapper .tooltip
 {
+	pointer-events: none;
+	
     position: absolute;
     z-index: 9999;
     left: 50%;
@@ -389,6 +393,8 @@ body
 }
 .wrapper:hover  .tooltip
 {
+	pointer-events: auto;
+	
     -webkit-transform: translate(-50%,-180px);
             transform: translate(-50%,-180px);
 
