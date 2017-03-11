@@ -74,7 +74,7 @@ $(function() {
 
     $("#restart").one("click", function() {
         $(this).text("Restart");
-        $(".stats").height(400).html("GO!<br/>");
+        $(".stats").height(400).css("padding","0 75px").html("GO!<br/>");
     }).on("click", initialize);
 });
 
