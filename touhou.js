@@ -113,7 +113,6 @@ function preload() {
 
 function initialize() {
     $(".results").hide();
-    $("#restart").hide();
     $(".stats img").remove();
     seen = [];
     solved = 0
@@ -140,6 +139,7 @@ function moveImage() {
 function timeUp() {
     clearInterval(timerInterval);
     $("#answer").val("");
+    $("#restart").hide();
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $(".results").fadeIn();
