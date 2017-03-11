@@ -127,9 +127,7 @@ function initialize() {
 }
 
 function moveImage() {
-    $(".image:eq(0)").appendTo($(`<div class="wrapper"></div>`).appendTo($(".stats"))).attr("data-char", touhouData[touhouId].char.replace(/_/g, " ").replace(/\b\w/g, function(l) {
-        return l.toUpperCase()
-    }));
+    $(".image:eq(0)").appendTo($(`<div class="wrapper"></div>`).appendTo($(".stats"))).attr("data-char", touhouData[touhouId].char.replace(/_/g, " ");
 }
 
 function timeUp() {
