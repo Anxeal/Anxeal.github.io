@@ -233,6 +233,8 @@ body
     width: 100%;
 
     text-align: center;
+	
+	text-shadow: 1px 1px white, -1px 1px white, 1px -1px white, -1px -1px white;
 }
 .circle-animation
 {
