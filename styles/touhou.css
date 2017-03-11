@@ -292,13 +292,9 @@ body
 
 .stats
 {
-	width: 800px;
-	
-    overflow-x: hidden;
     overflow-y: auto;
-
-    margin: 20px;
-
+	
+    padding: 20px;
     text-transform: none;
 }
 
