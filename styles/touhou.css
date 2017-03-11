@@ -339,7 +339,6 @@ body
 }
 .wrapper:hover .image
 {
-    z-index: 999;
 
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
@@ -383,7 +382,9 @@ body
     background: white;
     box-shadow: 0 0 1px rgba(0,0,0,.3);
 }
-
+.wrapper:hover {
+	z-index: 999;
+}
 .wrapper:hover  .tooltip
 {
     -webkit-transform: translate(-50%,-180px);
