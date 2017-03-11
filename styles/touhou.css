@@ -125,6 +125,7 @@ body
 }
 #answer
 {
+    font-family: 'Poppins', sans-serif;
     font-size: 2em;
 
     display: inline;
