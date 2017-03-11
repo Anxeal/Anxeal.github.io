@@ -74,7 +74,7 @@ $(function() {
 
     $("#restart").one("click", function() {
         $(this).text("Restart");
-        $(".stats").height(400).text("GO!");
+        $(".stats").height(400).html("GO!<br/>");
     }).on("click", initialize);
 });
 
@@ -137,7 +137,6 @@ function timeUp() {
     $("#answer").val("");
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
-        $($('.stats').contents().first()[0]).after("<br/>");
         $(".results").fadeIn();
         if(!$(".contest .image:not(.skipped):not(.solved)").length) moveImage();
         $(".stats .image")
