@@ -292,6 +292,7 @@ body
 
 .stats
 {
+	overflow-x: none;
     overflow-y: auto;
 	
     padding: 20px;
@@ -359,6 +360,8 @@ body
 
 .wrapper .tooltip
 {
+    text-transform: capitalize;
+	
 	pointer-events: none;
 	
     position: absolute;
