@@ -21,6 +21,7 @@ var imagesLoaded = 0;
 var timerInterval;
 var lastChars = [];
 var preloadQueue = [];
+var timeLeft = 60;
 $(function() {
     var request = new XMLHttpRequest();
     var url = "data/touhou.json";
@@ -97,7 +98,6 @@ function checkAnswer() {
         $(".back").text(touhouData[touhouId].char.replace(/_/g, " ")).fadeIn();
         $(".image:eq(0)").addClass("skipped");
         $("easy-autocomplete-container").hide();
-        setTimerVal(getTimerVal());
 
         setTimeout(function() {
             getNextTouhou(false);
@@ -149,17 +149,13 @@ function timeUp() {
 }
 
 function startTimer() {
-    setTimerVal(60);
-    timerInterval = setInterval(function() {
-        setTimerVal(getTimerVal() - 1);
-        if (getTimerVal() == 0) {
+    setTimerVal(timeLeft = 60);
+    timerInterval = setInterval(function() {				
+		setTimerVal(--timeLeft);
+        if (timeLeft == 0) {
             timeUp();
         }
     }, 1000);
-}
-
-function getTimerVal() {
-    return parseInt($(".timer span").text());
 }
 
 function setTimerVal(val) {
