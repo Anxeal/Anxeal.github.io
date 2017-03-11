@@ -146,7 +146,7 @@ function timeUp() {
         if(!$(".contest .image.skipped, .contest .image.solved").length) {
 			moveImage();
 		} else {
-			$(".image:eq(0)").remove();
+			$(".image:eq(1)").remove();
 			imagesLoaded--;
 		}
         $(".stats").scrollTop(0);
