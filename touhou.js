@@ -127,7 +127,14 @@ function initialize() {
 }
 
 function moveImage() {
-    $(".image:eq(0)").appendTo($(`<div class="wrapper"></div>`).appendTo($(".stats"))).attr("data-char", touhouData[touhouId].char.replace(/_/g, " "));
+    $(".image:eq(0)").appendTo($(`<div class="wrapper"></div>`).appendTo($(".stats"))).attr("data-char", touhouData[touhouId].char.replace(/_/g, " "))
+		.each(function() {
+			$(`<div class="tooltip">${$(this).attr("data-char")}</div>`)
+				.insertAfter($(this));
+		})
+		.parent().on("click", function() {
+			window.open($(this).children("img").attr("src"), '_blank');
+		});
 }
 
 function timeUp() {
@@ -136,16 +143,7 @@ function timeUp() {
     $(".contest").fadeOut("slow", function() {
         $('.stats').contents().first()[0].textContent = `Time is up! Solved: ${solved} - Skipped: ${skipped}`;
         $(".results").fadeIn();
-        if(!$(".contest .image.skipped, .contest .image.solved").length) moveImage();
-        $(".stats .image")
-            .each(function() {
-                $(`<div class="tooltip">${$(this).attr("data-char")}</div>`)
-                    .insertAfter($(this));
-            })
-            .parent().on("click", function() {
-                window.open($(this).children("img").attr("src"), '_blank');
-            });
-
+        if(!$(".contest .image.skipped, .contest .image.solved").length) moveImage();	
         $(".stats").scrollTop(0);
     });
 }
