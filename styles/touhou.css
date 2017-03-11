@@ -312,7 +312,9 @@ body
     border: none;
     background: #333;
 	
-	transition: .3s;
+	transition: .2s;
+	
+	cursor: pointer;
 }
 #restart:hover
 {
